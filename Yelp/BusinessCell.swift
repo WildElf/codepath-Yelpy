@@ -28,7 +28,7 @@ class BusinessCell: UITableViewCell {
 			
 			businessLabel.text = business.name
 			distanceLabel.text = business.distance
-			ratingsLabel.text = "\(business.reviewCount) reviews"
+			ratingsLabel.text = "\(business.reviewCount!) reviews"
 			addressLabel.text = business.address
 			categoriesLabel.text = business.categories
 			
@@ -39,10 +39,19 @@ class BusinessCell: UITableViewCell {
 	}
 	
 	override func awakeFromNib() {
+		super.awakeFromNib()
+		
 		posterImage.layer.cornerRadius = 4
 		posterImage.clipsToBounds = true
+		
+//		businessLabel.preferredMaxLayoutWidth = businessLabel.frame.width
 	}
 	
-
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		
+//		businessLabel.preferredMaxLayoutWidth = businessLabel.frame.width
+		
+	}
 
 }
