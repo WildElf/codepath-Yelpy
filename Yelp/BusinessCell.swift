@@ -23,7 +23,13 @@ class BusinessCell: UITableViewCell {
 
 	var business: Business! {
 		didSet {
+
+			if (business.imageURL != nil) {
 			posterImage.setImageWithURL(business.imageURL!)
+			} else {
+				let imageURL = NSURL(fileURLWithPath: "imageFail.png")
+				ratingsImage.setImageWithURL(imageURL)
+			}
 			ratingsImage.setImageWithURL(business.ratingImageURL!)
 			
 			businessLabel.text = business.name
